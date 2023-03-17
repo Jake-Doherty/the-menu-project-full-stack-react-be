@@ -8,8 +8,8 @@ const UserService = require('../lib/services/UserService');
 const mockUser = {
   firstName: 'Test',
   lastName: 'User',
-  email: 'test@example.com',
-  password: '12345',
+  email: 'test@menuapp.com',
+  password: 'justtherecipe',
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -52,7 +52,7 @@ describe('user routes', () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
-      .send({ email: 'test@example.com', password: '12345' });
+      .send({ email: 'test@menuapp.com', password: 'justtherecipe' });
     expect(res.status).toEqual(200);
   });
 
