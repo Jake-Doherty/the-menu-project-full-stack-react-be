@@ -45,7 +45,7 @@ describe('profile routes', () => {
 
   it('/ creates a new profile for signed in user', async () => {
     const [agent, user] = await registerAndLogin();
-    const res = await agent.post('/api/v2/profiles').send(mockProfile);
+    const res = await agent.post('/api/v2/profile').send(mockProfile);
     expect(res.body).toEqual({
       id: expect.any(String),
       user_id: user.id,
