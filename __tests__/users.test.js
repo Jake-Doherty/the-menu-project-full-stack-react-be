@@ -39,6 +39,7 @@ describe('user routes', () => {
     const { email } = mockUser;
 
     expect(res.body).toEqual({
+      id: expect.any(String),
       email,
     });
   });
