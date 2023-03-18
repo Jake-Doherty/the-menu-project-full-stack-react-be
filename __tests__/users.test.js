@@ -6,8 +6,6 @@ const UserService = require('../lib/services/UserService');
 
 // Dummy user for testing
 const mockUser = {
-  firstName: 'Test',
-  lastName: 'User',
   email: 'test@menuapp.com',
   password: 'justtherecipe',
 };
@@ -38,12 +36,9 @@ describe('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v2/users').send(mockUser);
-    const { firstName, lastName, email } = mockUser;
+    const { email } = mockUser;
 
     expect(res.body).toEqual({
-      id: expect.any(String),
-      firstName,
-      lastName,
       email,
     });
   });
@@ -80,8 +75,6 @@ describe('user routes', () => {
     await agent.post('/api/v2/users').send({
       email: 'admin',
       password: '1234',
-      firstName: 'admin',
-      lastName: 'admin',
     });
     // sign in the user
     await agent
